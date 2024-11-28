@@ -30,9 +30,9 @@ const App = () => {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="app">
-      <header>{user && <SignOut />}</header>
-      <div className="content">{user ? <ChatRoom /> : <SignIn />}</div>
+    <div className="App">
+      {user && <SignOut />}
+      <section >{user ? <ChatRoom /> : <SignIn />}</section>
     </div>
   );
 };
@@ -60,26 +60,27 @@ function SignIn() {
 
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center h-screen gredient">
       <h1 className="font-bold mb-6 text-white" style={{ fontSize: '50px' }}>
         Gup Shup
       </h1>
-      <Button.Group outline>
-        <Button
-          color="gray"
-          onClick={signInWithGoogle}
-          className="flex items-center gap-2 px-4 py-2"
+      <div className="flex items-center  justify-center z-20 sign-in">
+        <img
+          src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
+          alt="Google Icon"
+          className="w-9 h-9"
+          style={{ marginLeft: "20px", zIndex: "30" }}
+        />
+        <button className=" font-bold bg-white text-black " onClick={signInWithGoogle}
+          style={{ marginLeft: "-20px", paddingBottom: "16px", border: "none" }}
         >
-          <img
-            src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
-            width="20px"
-            alt="Google Icon"
-            className="flex-shrink-0 mr-2"
-          />
-          <span className="flex-1 text-center">Sign In with Google</span>
-        </Button>
+          Sign in with Google
+        </button>
+      </div>
+      <p style={{ marginTop: "10px" }}>Do not violate the community guidelines or you will be banned for life!</p>
 
-        {/* <Button style={{ background: "black" }}>
+
+      {/* <Button style={{ background: "black" }}>
           <AppleLogin
             className="flex items-center gap-2 px-4 py-2"
 
@@ -89,17 +90,23 @@ function SignIn() {
           />
         </Button> */}
 
-      </Button.Group>
-    </div>
+
+    </div >
   );
 }
 
 function SignOut() {
   return (
     auth.currentUser && (
-      <button className="btn signout" onClick={() => signOut(auth)}>
-        Sign Out
-      </button>
+      <div >
+        <header className='App'>
+          <h1>⚛️🔥💬</h1>
+
+          <button onClick={() => signOut(auth)} className="sign-out text-white font-bold"  >
+            Sign Out
+          </button>
+        </header>
+      </div>
     )
   );
 }
@@ -124,7 +131,7 @@ function ChatRoom() {
 
   return (
     <div className="chat-room">
-      <div className="messages">
+      <div className="messages" style={{  paddingLeft:"-20px" }}>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
       </div>
@@ -135,9 +142,8 @@ function ChatRoom() {
           onChange={(e) => setFormValue(e.target.value)}
           placeholder="Type a message"
         />
-        <button className="send-btn" type="submit">
-          Send
-        </button>
+        <img src='https://img.icons8.com/?size=100&id=hSL03nbSErZD&format=png&color=000000' className="send-btn" style={{cursor:"pointer"}}/>
+     
       </form>
     </div>
   );
@@ -149,10 +155,25 @@ function ChatMessage(props) {
 
   return (
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://via.placeholder.com/40'} alt="User" />
-      <p>{text}</p>
+      <img src={photoURL || 'https://via.placeholder.com/40'} alt="User"  width={"60px"} style={{borderRadius:"50%", marginLeft:"20px" , padding:"10px"}}/>
+      <p >{text}</p>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
