@@ -1,0 +1,4 @@
+body {
+    background-color: #2d2928; /* For browsers that do not support gradients */
+  background-image: linear-gradient( #ec380b, #ec0b5d);
+}
