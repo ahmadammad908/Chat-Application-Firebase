@@ -131,7 +131,18 @@ function ChatRoom() {
 
   return (
     <div className="chat-room">
-      <div className="messages" style={{  paddingLeft:"-20px" }}>
+      <div className="messages" style={{
+        paddingLeft: "-20px",
+       position:"absolute",
+       top:"0",
+       right:"0",
+       marginTop:"160px",
+       left:"0",
+       margin:"10px",
+        
+
+        marginBottom:"300px"
+      }}>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
       </div>
@@ -142,8 +153,7 @@ function ChatRoom() {
           onChange={(e) => setFormValue(e.target.value)}
           placeholder="Type a message"
         />
-        <img src='https://img.icons8.com/?size=100&id=hSL03nbSErZD&format=png&color=000000' className="send-btn" style={{cursor:"pointer"}}/>
-     
+        <button disabled={!formValue}>Send </button>
       </form>
     </div>
   );
@@ -155,7 +165,7 @@ function ChatMessage(props) {
 
   return (
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://via.placeholder.com/40'} alt="User"  width={"60px"} style={{borderRadius:"50%", marginLeft:"20px" , padding:"10px"}}/>
+      <img src={photoURL || 'https://via.placeholder.com/40'} alt="User" width={"60px"} style={{ borderRadius: "50%", marginLeft: "20px", padding: "10px" }} />
       <p >{text}</p>
     </div>
   );
