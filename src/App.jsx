@@ -6,7 +6,24 @@ import { getAuth, GoogleAuthProvider, OAuthProvider, signInWithPopup, signOut } 
 import { getFirestore, collection, query, orderBy, limit, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { Button } from 'flowbite-react';
+import '@ionic/react/css/core.css';
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
+import '@ionic/react/css/padding.css';
+import '@ionic/react/css/float-elements.css';
+import '@ionic/react/css/text-alignment.css';
+import '@ionic/react/css/text-transformation.css';
+import '@ionic/react/css/flex-utils.css';
+import '@ionic/react/css/display.css';
+import { getTheme, isIos, setTheme } from "../src/Utils/Utils";
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonIcon, IonMenuButton, IonTitle, IonToolbar } from '@ionic/react';
+
+import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, search, personCircle, star } from 'ionicons/icons';
+
+
+
 // import AppleLogin from 'react-apple-login'
 
 
@@ -25,6 +42,31 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
+
+const mode = new URLSearchParams(window.location.search).get("mode");
+
+if (mode) {
+  setupIonicReact({
+    mode: mode,
+  });
+} else {
+  // If android, use md mode
+  if (!isIos()) {
+    setupIonicReact({
+      mode: "md",
+    });
+  } else {
+    // iOS everywhere else
+    setupIonicReact({
+      mode: "ios",
+    });
+  }
+}
+
+setTheme(getTheme());
+
+
+
 
 const App = () => {
   const [user] = useAuthState(auth);
@@ -60,27 +102,46 @@ function SignIn() {
 
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen gredient">
-      <h1 className="font-bold mb-6 text-white" style={{ fontSize: '50px' }}>
-        Gup Shup
-      </h1>
-      <div className="flex items-center  justify-center z-20 sign-in">
-        <img
-          src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
-          alt="Google Icon"
-          className="w-9 h-9"
-          style={{ marginLeft: "20px", zIndex: "30" }}
-        />
-        <button className=" font-bold bg-white text-black " onClick={signInWithGoogle}
-          style={{ marginLeft: "-20px", paddingBottom: "16px", border: "none" }}
-        >
-          Sign in with Google
-        </button>
-      </div>
-      <p style={{ marginTop: "10px" }}>Do not violate the community guidelines or you will be banned for life!</p>
+    <>
+      <IonToolbar color="dark">
+        <IonButtons slot="secondary">
+          <IonButton fill="solid">
+            <IonIcon slot="start" icon={personCircle}></IonIcon>
+            Contact
+          </IonButton>
+        </IonButtons>
+        <IonButtons slot="primary">
+          <IonButton fill="solid">
+            Report
+            <IonIcon slot="end" icon={helpCircle}></IonIcon>
+          </IonButton>
+        </IonButtons>
+        <IonTitle>Random Chats</IonTitle>
+      </IonToolbar>
+      <div className="flex flex-col justify-center items-center  app">
+
+        <h1 className="font-bold mb-6" style={{ fontSize: '50px', color: "#333333" }}>
+          Gup Shup
+        </h1>
+        <div className="flex items-center justify-center z-20 sign-in space-x-4">
 
 
-      {/* <Button style={{ background: "black" }}>
+          <IonButton onClick={signInWithGoogle} size="default" color={"dark"}>
+            <img
+              src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
+              alt="Google Icon"
+              width={"10%"}
+              style={{ marginRight: "10px" }}
+            />
+            <span style={{ display: "block", marginTop: "3px" }}>    Sign in with Google
+            </span>
+          </IonButton>
+        </div>
+
+        <p style={{ color: "#333333", marginTop: "25px", }} className='font-bold text-center'>Do not violate the community guidelines or you will be banned for life!</p>
+
+
+        {/* <Button style={{ background: "black" }}>
           <AppleLogin
             className="flex items-center gap-2 px-4 py-2"
 
@@ -91,7 +152,8 @@ function SignIn() {
         </Button> */}
 
 
-    </div >
+      </div >
+    </>
   );
 }
 
@@ -102,7 +164,7 @@ function SignOut() {
         <header className='App'>
           <h1>⚛️🔥💬</h1>
 
-          <button onClick={() => signOut(auth)} className="sign-out text-white font-bold"  >
+          <button onClick={() => signOut(auth)} className="sign-out text-black font-bold"  >
             Sign Out
           </button>
         </header>
@@ -131,18 +193,8 @@ function ChatRoom() {
 
   return (
     <div className="chat-room">
-      <div className="messages" style={{
-        paddingLeft: "-20px",
-       position:"absolute",
-       top:"0",
-       right:"0",
-       marginTop:"160px",
-       left:"0",
-       margin:"10px",
-        
-
-        marginBottom:"300px"
-      }}>
+      <div className="messages"
+      >
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
       </div>
@@ -165,7 +217,7 @@ function ChatMessage(props) {
 
   return (
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://via.placeholder.com/40'} alt="User" width={"60px"} style={{ borderRadius: "50%", marginLeft: "20px", padding: "10px" }} />
+      <img src={photoURL || 'https://via.placeholder.com/40'} alt="User" width={"60px"} />
       <p >{text}</p>
     </div>
   );

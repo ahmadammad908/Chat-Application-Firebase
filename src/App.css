@@ -1,4 +1,4 @@
-
+/* 
 
 
 .App {
@@ -152,7 +152,8 @@ p {
   margin: 2px 5px;
 } */
 
-.gredient{
-  background-image: linear-gradient(red, yellow);
-
+.app{
+  display: flex;
+  justify-content: center;
+  height: 80vh;
 }
