@@ -173,13 +173,11 @@ function SignOut() {
       // </div>
       <>
          <IonToolbar color="dark">
-        <IonButtons slot="secondary">
-          <a href="mailto: ahmadammad.me789@gmail.com">
+        <IonButtons slot="end">
             <IonButton fill="solid" color={"danger"} onClick={() => signOut(auth)}>
               <IonIcon slot="start" icon={logOut} style={{marginTop:"-2px"}}></IonIcon>
               Sign Out
             </IonButton>
-          </a>
         </IonButtons>
       
         <IonTitle>⚛️🔥💬</IonTitle>
