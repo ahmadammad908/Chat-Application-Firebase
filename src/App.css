@@ -165,15 +165,16 @@ main {
   padding: 10px;
 
   margin: 10vh 0 10vh;
-  height: 50vh;
+  height: 80vh;
   overflow-y: scroll;
   width: 100%;
   display: flex;
   flex-direction: column;
-}
+} 
 
 main::-webkit-scrollbar {
   width: 0.25rem;
+  height: 100vh;
 }
 
 main::-webkit-scrollbar-track {
