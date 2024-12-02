@@ -174,11 +174,11 @@ function SignOut() {
       <>
       <IonToolbar color={"dark"}>
         <IonButtons slot="start">
-          <IonButton>Gup Shup</IonButton>
+          <IonButton>Gup Shup ⚛️🔥💬</IonButton>
         </IonButtons>
         <IonButtons slot="end">
 
-          <IonButton onClick={() => signOut(auth)} fill='solid' color={"danger"} style={{marginRight:"20px"}}>        <IonIcon slot="end" icon={logOut} style={{marginTop:"-2px"}}></IonIcon>
+          <IonButton onClick={() => signOut(auth)} fill='solid' color={"danger"} style={{marginRight:"20px"}}>        <IonIcon slot="end" icon={logOut} style={{marginTop:"-1px"}}></IonIcon>
           Sign Out</IonButton>
         </IonButtons>
       </IonToolbar>
