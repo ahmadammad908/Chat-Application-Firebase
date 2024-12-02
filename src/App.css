@@ -162,12 +162,14 @@ p {
   bottom: 0;
 }
 main {
-  flex: 1; /* Takes the available space */
-  overflow-y: auto; /* Enables scrolling */
+  padding: 10px;
+
+  margin: 10vh 0 10vh;
+  height: 50vh;
+  overflow-y: scroll;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  box-sizing: border-box; /* Ensures padding does not overflow height */
 }
 
 main::-webkit-scrollbar {
