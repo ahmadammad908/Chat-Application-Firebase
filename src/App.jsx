@@ -182,7 +182,7 @@ function SignOut() {
           </a>
         </IonButtons>
       
-        <IonTitle>Gup Shup ⚛️🔥💬</IonTitle>
+        <IonTitle>⚛️🔥💬</IonTitle>
       </IonToolbar>
       </>
     )
