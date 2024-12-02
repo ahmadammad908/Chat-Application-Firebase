@@ -172,16 +172,16 @@ function SignOut() {
       //   </header>
       // </div>
       <>
-         <IonToolbar color="dark">
-        <IonButtons slot="end">
-            <IonButton fill="solid" color={"danger"} onClick={() => signOut(auth)}>
-              <IonIcon slot="start" icon={logOut} style={{marginTop:"-2px"}}></IonIcon>
-              Sign Out
-            </IonButton>
-        </IonButtons>
       
-        <IonTitle slot='start'>⚛️🔥💬</IonTitle>
-      </IonToolbar>
+      <IonToolbar color="dark">
+  <IonButtons slot="end">
+    <IonButton fill="solid" color="danger" onClick={() => signOut(auth)}>
+      <IonIcon slot="start" icon={logOut} style={{ marginTop: "-2px" }}></IonIcon>
+      Sign Out
+    </IonButton>
+  </IonButtons>
+  <IonTitle slot="start">⚛️🔥💬</IonTitle>
+</IonToolbar>
       </>
     )
   );
