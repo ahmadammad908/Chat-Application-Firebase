@@ -162,14 +162,12 @@ p {
   bottom: 0;
 }
 main {
-  padding: 10px;
-  height: calc(100vh - 10vh); /* Adjust height dynamically */
-  margin: 0; /* Remove extra margins */
-  overflow-y: auto; /* Ensure proper scroll behavior */
-  width: 100%;
+  flex: 1; /* Takes the available space */
+  overflow-y: auto; /* Enables scrolling */
   display: flex;
   flex-direction: column;
-  box-sizing: border-box; /* Include padding in height calculation */
+  padding: 10px;
+  box-sizing: border-box; /* Ensures padding does not overflow height */
 }
 
 main::-webkit-scrollbar {
