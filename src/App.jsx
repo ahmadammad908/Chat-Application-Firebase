@@ -172,18 +172,18 @@ function SignOut() {
       //   </header>
       // </div>
       <>
-        <IonHeader>
-          <IonToolbar color={"dark"}>
-            <IonButton onClick={() => signOut(auth)} color={"danger"} slot='end'>
-              <IonIcon icon={logOut} slot='start' style={{ marginTop: "-2PX" }} />
-
+         <IonToolbar color="dark">
+        <IonButtons slot="secondary">
+          <a href="mailto: ahmadammad.me789@gmail.com">
+            <IonButton fill="solid" color={"danger"} onClick={() => signOut(auth)}>
+              <IonIcon slot="start" icon={logOut} style={{marginTop:"-2px"}}></IonIcon>
               Sign Out
             </IonButton>
-            <IonTitle slot='start'>Gup Shup ⚛️🔥💬</IonTitle>
-
-
-          </IonToolbar>
-        </IonHeader>
+          </a>
+        </IonButtons>
+      
+        <IonTitle>Gup Shup ⚛️🔥💬</IonTitle>
+      </IonToolbar>
       </>
     )
   );
