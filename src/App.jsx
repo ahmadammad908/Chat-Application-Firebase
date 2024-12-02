@@ -162,15 +162,7 @@ function SignIn() {
 function SignOut() {
   return (
     auth.currentUser && (
-      // <div >
-      //   <header className='App'>
-      //     <h1>⚛️🔥💬</h1>
-
-      //     <button onClick={() => signOut(auth)} className="sign-out text-black font-bold"  >
-      //       Sign Out
-      //     </button>
-      //   </header>
-      // </div>
+      
       <>
       
       <IonToolbar color={"dark"}>
@@ -179,7 +171,7 @@ function SignOut() {
 
         </IonButtons>
         <IonButtons slot="primary" >
-          <IonButton fill="solid" color={"danger"}>
+          <IonButton fill="solid" color={"danger"} onClick={() => signOut(auth)}>
             Sign Out
             <IonIcon slot="end" icon={create}></IonIcon>
           </IonButton>
