@@ -163,13 +163,13 @@ p {
 }
 main {
   padding: 10px;
-
-  margin: 10vh 0 10vh;
-  height: 80vh;
-  overflow-y: scroll;
+  height: calc(100vh - 10vh); /* Adjust height dynamically */
+  margin: 0; /* Remove extra margins */
+  overflow-y: auto; /* Ensure proper scroll behavior */
   width: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box; /* Include padding in height calculation */
 }
 
 main::-webkit-scrollbar {
