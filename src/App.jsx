@@ -180,7 +180,7 @@ function SignOut() {
             </IonButton>
         </IonButtons>
       
-        <IonTitle>⚛️🔥💬</IonTitle>
+        <IonTitle slot='start'>⚛️🔥💬</IonTitle>
       </IonToolbar>
       </>
     )
