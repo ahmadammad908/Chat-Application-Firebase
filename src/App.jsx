@@ -20,7 +20,7 @@ import { getTheme, isIos, setTheme } from "../src/Utils/Utils";
 import { IonApp, IonRouterOutlet, setupIonicReact, IonFooter } from '@ionic/react';
 import { IonBackButton, IonButton, IonButtons, IonIcon, IonMenuButton, IonTitle, IonToolbar } from '@ionic/react';
 
-import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, search, personCircle, star , logOut} from 'ionicons/icons';
+import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, search, personCircle, star, logOut } from 'ionicons/icons';
 
 
 
@@ -143,45 +143,37 @@ function SignIn() {
           </IonButton>
         </div>
 
-        <p style={{ color: "#333333", marginTop: "25px",  }} className='font-bold text-center'>Do not violate the community guidelines or you will be banned for life!</p>
+        <p style={{ color: "#333333", marginTop: "25px", }} className='font-bold text-center'>Do not violate the community guidelines or you will be banned for life!</p>
         <IonFooter slot='fixed' className='footer'>
           <IonToolbar color='dark' >
             <IonTitle className='md:text-start text-center' >Gup Shup ⚛️🔥💬</IonTitle>
             <IonTitle slot='end' className='hidden md:block'>© 2024 Gup Shup 💬</IonTitle>
 
-            
+
           </IonToolbar>
         </IonFooter>
       </div >
-    
+
     </>
-    
+
   );
 }
 
 function SignOut() {
   return (
     auth.currentUser && (
-      // <div >
-      //   <header className='App'>
-      //     <h1>⚛️🔥💬</h1>
-
-      //     <button onClick={() => signOut(auth)} className="sign-out text-black font-bold"  >
-      //       Sign Out
-      //     </button>
-      //   </header>
-      // </div>
+    
       <>
-      <IonToolbar color={"dark"}>
-        <IonButtons slot="start">
-          <IonButton>Gup Shup ⚛️🔥💬</IonButton>
-        </IonButtons>
-        <IonButtons slot="end">
+        <IonToolbar color={"dark"}>
+          <IonButtons slot="start">
+            <IonButton>Gup Shup ⚛️🔥💬</IonButton>
+          </IonButtons>
+          <IonButtons slot="end">
 
-          <IonButton onClick={() => signOut(auth)} fill='solid' color={"danger"} style={{marginRight:"20px"}}>        <IonIcon slot="end" icon={logOut} style={{marginTop:"-1px"}}></IonIcon>
-          Sign Out</IonButton>
-        </IonButtons>
-      </IonToolbar>
+            <IonButton onClick={() => signOut(auth)} fill='solid' color={"danger"} style={{ marginRight: "20px" }}>        <IonIcon slot="end" icon={logOut} style={{ marginTop: "-1px" }}></IonIcon>
+              Sign Out</IonButton>
+          </IonButtons>
+        </IonToolbar>
       </>
     )
   );
@@ -206,34 +198,96 @@ function ChatRoom() {
   };
 
   return (
-    <div className="chat-room">
-      <div className="messages"
+    <>
+    
+    
+      
+      <form
+        onSubmit={sendMessage}
+        style={{
+          position: 'fixed',
+          bottom: '0',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          padding: '10px',
+          background: '#f8f8f8',
+          borderTop: '1px solid #ccc',
+        }}
       >
-        {messages &&
-          messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
-      </div>
-      <form className="message-form" onSubmit={sendMessage}>
         <input
-          className="message-input"
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
           placeholder="Type a message"
+          style={{
+            flex: 1,
+            padding: '10px',
+            borderRadius: '20px',
+            border: '1px solid #ccc',
+            marginRight: '10px',
+          }}
         />
-        <button disabled={!formValue}>Send </button>
+        <button
+          disabled={!formValue}
+          type="submit"
+          style={{
+            padding: '10px 15px',
+            backgroundColor: '#007bff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '20px',
+            cursor: 'pointer',
+          }}
+        >
+          Send
+        </button>
       </form>
-    </div>
+      <main style={{ padding: '10px', overflowY: 'auto', maxHeight: '80vh', marginTop:"20px" }}>
+        {messages &&
+          messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+      </main>
+      
+      
+    </>
   );
 }
 
 function ChatMessage(props) {
   const { text, uid, photoURL } = props.message;
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  const isUserMessage = uid === auth.currentUser.uid;
+
 
   return (
-    <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://via.placeholder.com/40'} alt="User" width={"60px"} />
-      <p >{text}</p>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: isUserMessage ? 'row-reverse' : 'row',
+        alignItems: 'center',
+        marginBottom: '10px',
+      }}
+    >
+      <img
+        src={photoURL || 'https://via.placeholder.com/40'}
+        alt="User"
+        width="40px"
+        height="40px"
+        style={{ borderRadius: '50%', margin: isUserMessage ? '0 0 0 10px' : '0 10px 0 0' }}
+      />
+      <p
+        style={{
+          padding: '10px',
+          borderRadius: '15px',
+          maxWidth: '70%',
+          color: isUserMessage ? 'white' : 'black',
+          backgroundColor: isUserMessage ? '#007bff' : '#e9e9e9',
+          wordWrap: 'break-word',
+        }}
+      >
+        {text}
+      </p>
     </div>
+
   );
 }
 
