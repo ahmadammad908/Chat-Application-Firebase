@@ -173,14 +173,13 @@ function SignOut() {
       // </div>
       <>
       
-      <IonToolbar>
-        <IonButtons slot="secondary">
-          <IonButton fill="outline">
-            GupShup
-          </IonButton>
+      <IonToolbar color={"dark"}>
+        <IonButtons slot="secondary" >
+        <IonButton>Gup Shup ⚛️🔥💬</IonButton>
+
         </IonButtons>
-        <IonButtons slot="primary">
-          <IonButton fill="outline">
+        <IonButtons slot="primary" >
+          <IonButton fill="solid" color={"danger"}>
             Sign Out
             <IonIcon slot="end" icon={create}></IonIcon>
           </IonButton>
