@@ -18,9 +18,9 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 import { getTheme, isIos, setTheme } from "../src/Utils/Utils";
 import { IonApp, IonRouterOutlet, setupIonicReact, IonFooter } from '@ionic/react';
-import { IonBackButton, IonButton, IonButtons, IonIcon, IonMenuButton, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonIcon, IonMenuButton, IonTitle, IonToolbar, IonHeader } from '@ionic/react';
 
-import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, search, personCircle, star } from 'ionicons/icons';
+import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, search, personCircle, star, logOut } from 'ionicons/icons';
 
 
 
@@ -143,34 +143,48 @@ function SignIn() {
           </IonButton>
         </div>
 
-        <p style={{ color: "#333333", marginTop: "25px",  }} className='font-bold text-center'>Do not violate the community guidelines or you will be banned for life!</p>
+        <p style={{ color: "#333333", marginTop: "25px", }} className='font-bold text-center'>Do not violate the community guidelines or you will be banned for life!</p>
         <IonFooter slot='fixed' className='footer'>
           <IonToolbar color='dark' >
             <IonTitle className='md:text-start text-center' >Gup Shup ⚛️🔥💬</IonTitle>
             <IonTitle slot='end' className='hidden md:block'>© 2024 Gup Shup 💬</IonTitle>
 
-            
+
           </IonToolbar>
         </IonFooter>
       </div >
-    
+
     </>
-    
+
   );
 }
 
 function SignOut() {
   return (
     auth.currentUser && (
-      <div >
-        <header className='App'>
-          <h1>⚛️🔥💬</h1>
+      // <div >
+      //   <header className='App'>
+      //     <h1>⚛️🔥💬</h1>
 
-          <button onClick={() => signOut(auth)} className="sign-out text-black font-bold"  >
-            Sign Out
-          </button>
-        </header>
-      </div>
+      //     <button onClick={() => signOut(auth)} className="sign-out text-black font-bold"  >
+      //       Sign Out
+      //     </button>
+      //   </header>
+      // </div>
+      <>
+        <IonHeader>
+          <IonToolbar color={"dark"}>
+            <IonButton onClick={() => signOut(auth)} color={"danger"} slot='end'>
+              <IonIcon icon={logOut} slot='start' style={{ marginTop: "-2PX" }} />
+
+              Sign Out
+            </IonButton>
+            <IonTitle slot='start'>Gup Shup ⚛️🔥💬</IonTitle>
+
+
+          </IonToolbar>
+        </IonHeader>
+      </>
     )
   );
 }
