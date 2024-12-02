@@ -157,3 +157,7 @@ p {
   justify-content: center;
   height: 80vh;
 }
+.footer{
+  position: fixed;
+  bottom: 0;
+}

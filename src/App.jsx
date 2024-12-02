@@ -17,7 +17,7 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 import { getTheme, isIos, setTheme } from "../src/Utils/Utils";
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact, IonFooter } from '@ionic/react';
 import { IonBackButton, IonButton, IonButtons, IonIcon, IonMenuButton, IonTitle, IonToolbar } from '@ionic/react';
 
 import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, search, personCircle, star } from 'ionicons/icons';
@@ -105,16 +105,21 @@ function SignIn() {
     <>
       <IonToolbar color="dark">
         <IonButtons slot="secondary">
-          <IonButton fill="solid">
-            <IonIcon slot="start" icon={personCircle}></IonIcon>
-            Contact
-          </IonButton>
+          <a href="mailto: ahmadammad.me789@gmail.com">
+            <IonButton fill="solid">
+              <IonIcon slot="start" icon={personCircle}></IonIcon>
+              Contact
+            </IonButton>
+          </a>
         </IonButtons>
         <IonButtons slot="primary">
-          <IonButton fill="solid">
-            Report
-            <IonIcon slot="end" icon={helpCircle}></IonIcon>
-          </IonButton>
+          <a href="mailto: ahmadammad.me789@gmail.com">
+            <IonButton fill="solid"
+            >
+              Report
+              <IonIcon slot="end" icon={helpCircle}></IonIcon>
+            </IonButton>
+          </a>
         </IonButtons>
         <IonTitle>Random Chats</IonTitle>
       </IonToolbar>
@@ -138,22 +143,19 @@ function SignIn() {
           </IonButton>
         </div>
 
-        <p style={{ color: "#333333", marginTop: "25px", }} className='font-bold text-center'>Do not violate the community guidelines or you will be banned for life!</p>
+        <p style={{ color: "#333333", marginTop: "25px",  }} className='font-bold text-center'>Do not violate the community guidelines or you will be banned for life!</p>
+        <IonFooter slot='fixed' className='footer'>
+          <IonToolbar color='dark' >
+            <IonTitle className='md:text-start text-center' >Gup Shup ⚛️🔥💬</IonTitle>
+            <IonTitle slot='end' className='hidden md:block'>© 2024 Gup Shup 💬</IonTitle>
 
-
-        {/* <Button style={{ background: "black" }}>
-          <AppleLogin
-            className="flex items-center gap-2 px-4 py-2"
-
-            clientId="com.react.apple.login" // Replace with your actual client ID
-            redirectURI="https://test-authw.netlify.app" // Replace with your actual redirect URI
-
-          />
-        </Button> */}
-
-
+            
+          </IonToolbar>
+        </IonFooter>
       </div >
+    
     </>
+    
   );
 }
 
