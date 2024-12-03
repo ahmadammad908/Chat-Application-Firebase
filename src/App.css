@@ -163,7 +163,7 @@ p {
 }
 main {
   padding: 10px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin: 10vh 0 10vh;
   overflow-y: scroll;
   width: 100%;
