@@ -183,7 +183,7 @@ function ChatRoom() {
       <form
         onSubmit={sendMessage}
         style={{
-          position: 'fixed',
+          position: 'sticky',
           bottom: '0',
           width: '100%',
           display: 'flex',
@@ -239,7 +239,7 @@ function ChatMessage(props) {
       }}
     >
       <img
-        src={photoURL || 'https://via.placeholder.com/40'}
+        src={photoURL || 'https://w0.peakpx.com/wallpaper/31/181/HD-wallpaper-anonymous-hoodie-good-or-bad-anonymus-hoodie-artist-artwork-digital-art.jpg'}
         alt="User"
         width="40px"
         height="40px"
