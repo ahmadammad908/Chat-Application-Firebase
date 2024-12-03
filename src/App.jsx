@@ -183,7 +183,7 @@ function ChatRoom() {
       <form
         onSubmit={sendMessage}
         style={{
-          position: 'sticky',
+          position: 'fixed',
           bottom: '0',
           width: '100%',
           display: 'flex',

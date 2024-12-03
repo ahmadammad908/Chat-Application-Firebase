@@ -163,11 +163,13 @@ p {
 }
 main {
   padding: 10px;
-  height: 200vh;
+  border: 2px solid red;
   margin: 10vh 0 10vh;
   overflow-y: scroll;
   width: 100%;
   display: flex;
+  position:fixed;
+  bottom: 0;
   flex-direction: column;
 } 
 
