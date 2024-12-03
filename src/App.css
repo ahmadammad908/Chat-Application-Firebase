@@ -163,24 +163,11 @@ p {
 }
 main {
   padding: 10px;
-
+  height: 200vh;
   margin: 10vh 0 10vh;
-  height: 80vh;
   overflow-y: scroll;
   width: 100%;
   display: flex;
   flex-direction: column;
 } 
 
-main::-webkit-scrollbar {
-  width: 0.25rem;
-  height: 100vh;
-}
-
-main::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
-main::-webkit-scrollbar-thumb {
-  background: #6649b8;
-}
